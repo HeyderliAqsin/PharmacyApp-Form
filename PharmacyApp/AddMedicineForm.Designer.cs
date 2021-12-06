@@ -352,7 +352,6 @@ namespace PharmacyApp
             this.txtbarcode.Name = "txtbarcode";
             this.txtbarcode.Size = new System.Drawing.Size(270, 34);
             this.txtbarcode.TabIndex = 23;
-            this.txtbarcode.TextChanged += new System.EventHandler(this.txtbarcode_TextChanged);
             this.txtbarcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbarcode_KeyPress);
             // 
             // pictureBox1

@@ -1,4 +1,5 @@
 ﻿using AForge.Video.DirectShow;
+using PharmacyApp.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,8 @@ namespace PharmacyApp
 {
     public partial class Barcode : Form
     {
+        PharmacyDbContext db = new PharmacyDbContext();
+        Medicine selectedMed;
         public Barcode()
         {
             InitializeComponent();
@@ -46,7 +49,11 @@ namespace PharmacyApp
                 txtBarcode.Invoke(new MethodInvoker(delegate ()
                 {
                     txtBarcode.Text = result.ToString();
-
+                    selectedMed = db.Medicines.FirstOrDefault(m => m.Barcode == txtBarcode.Text);
+                    if (selectedMed != null) 
+                    {
+                        txtMedName.Text = selectedMed.Name;
+                    }
                 }));
             }
             pictureBox.Image = bitmap;
@@ -60,5 +67,7 @@ namespace PharmacyApp
                     VideoCaptureDevice.Stop();
             }
         }
+
+      
     }
 }

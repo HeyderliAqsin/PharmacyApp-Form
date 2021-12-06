@@ -101,7 +101,7 @@ namespace PharmacyApp
             if (SelectedMedicine.Quantity > 0)
             {
                 txtMedName.Text = SelectedMedicine.Name;
-                panel1.Visible = true;
+                panel.Visible = true;
                 nmquantity.Value = 1;
                 nmquantity.Maximum = SelectedMedicine.Quantity;
             }   
@@ -144,10 +144,29 @@ namespace PharmacyApp
 
         private void btnSell_Click(object sender, EventArgs e)
         {
+
+            string message = "";
+            decimal totalPrice = 0;
             foreach (var med in ckSellList.Items)
             {
-
+                string medName = med.ToString().Split('-')[0];
+                Medicine selectMed= db.Medicines.FirstOrDefault(x => x.Name == medName);
+                int quantity =Convert.ToInt32(med.ToString().Split('-')[1]);
+                message += $"Dərman adı: {medName}, sayı: {quantity}, qiyməti: {selectMed.Price*quantity} AZN\n";
+                totalPrice += selectMed.Price * quantity;
+                selectMed.Quantity -= quantity;
+                db.SaveChanges();
+                ckSellList.Items.Clear();
+                panel.Visible = false;
             }
+            MessageBox.Show(message + "\n" + "Ümumi qiymət: " + totalPrice, "Satıldı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            FillDataMedicine();
+        }
+
+        private void btnBarCoder_Click(object sender, EventArgs e)
+        {
+            Barcode br = new Barcode();
+            br.ShowDialog();
         }
     }
 }

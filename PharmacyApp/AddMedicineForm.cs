@@ -29,6 +29,7 @@ namespace PharmacyApp
             FillFirmsCombo();
             FillTagsCombo();
             FillMedicineGridData();
+            
         }
         #endregion
 
@@ -178,37 +179,22 @@ namespace PharmacyApp
         }
         private void AddTagMedicine(int medicineId)
         {
-            for(var i = 0; i < ckTagList.Items.Count;i++)
+            foreach (var item in ckTagList.Items)
             {
-                string tagName=ckTagList.Items[i].ToString();
-                int tagID;
-                if (CheckTagname(tagName))
+                int tagId = HasTag(item.ToString());
+                TagToMedicine newTag = new()
                 {
-                    tagID = db.Tags.First(x => x.Name == tagName).TagId;
-                }
-                else
-                {
-                    Tag tag =  new ()
-                    {
-                        Name = tagName
-                    };
-                    db.SaveChanges();
-                    tagID = tag.TagId;
-                }
-
-                db.TagToMedicines.Add(new TagToMedicine
-                {
-                    MedicineId=medicineId,
-                    TagId=tagID
-
-                });
+                    MedicineId = medicineId,
+                    TagId = tagId
+                };
+                db.TagToMedicines.Add(newTag);
                 db.SaveChanges();
             }
         }
 
         private void cmbTags_KeyUp(object sender, KeyEventArgs e)
         {
-            string tagname = cmbTags.Text;
+            string tagName = cmbTags.Text;
             if (e.KeyCode == Keys.Enter)
             {
                 AddTagItem();
@@ -273,11 +259,6 @@ namespace PharmacyApp
             }
         }
 
-        private void txtbarcode_TextChanged(object sender, EventArgs e)
-        {
-            Barcode br = new Barcode();
-            br.ShowDialog();
-
-        }
+     
     }
 }

@@ -41,7 +41,8 @@ namespace PharmacyApp
             this.medicineToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.firmsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tagsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel = new System.Windows.Forms.Panel();
+            this.btnBarCode = new System.Windows.Forms.Button();
             this.btnSell = new System.Windows.Forms.Button();
             this.ckSellList = new System.Windows.Forms.CheckedListBox();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -49,10 +50,11 @@ namespace PharmacyApp
             this.label3 = new System.Windows.Forms.Label();
             this.txtMedName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnBarCoder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgMedicine)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmquantity)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,7 +63,7 @@ namespace PharmacyApp
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.Teal;
-            this.label1.Location = new System.Drawing.Point(12, 139);
+            this.label1.Location = new System.Drawing.Point(12, 212);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(137, 28);
             this.label1.TabIndex = 0;
@@ -71,7 +73,7 @@ namespace PharmacyApp
             // 
             this.cmbMedicine.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbMedicine.FormattingEnabled = true;
-            this.cmbMedicine.Location = new System.Drawing.Point(12, 185);
+            this.cmbMedicine.Location = new System.Drawing.Point(0, 258);
             this.cmbMedicine.Name = "cmbMedicine";
             this.cmbMedicine.Size = new System.Drawing.Size(249, 36);
             this.cmbMedicine.TabIndex = 1;
@@ -82,7 +84,7 @@ namespace PharmacyApp
             // 
             this.cmbTags.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbTags.FormattingEnabled = true;
-            this.cmbTags.Location = new System.Drawing.Point(276, 184);
+            this.cmbTags.Location = new System.Drawing.Point(281, 258);
             this.cmbTags.Name = "cmbTags";
             this.cmbTags.Size = new System.Drawing.Size(249, 36);
             this.cmbTags.TabIndex = 3;
@@ -94,7 +96,7 @@ namespace PharmacyApp
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.Teal;
-            this.label2.Location = new System.Drawing.Point(276, 138);
+            this.label2.Location = new System.Drawing.Point(281, 212);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 28);
             this.label2.TabIndex = 2;
@@ -168,22 +170,36 @@ namespace PharmacyApp
             this.tagsToolStripMenuItem.Size = new System.Drawing.Size(68, 32);
             this.tagsToolStripMenuItem.Text = "Tags";
             // 
-            // panel1
+            // panel
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.btnSell);
-            this.panel1.Controls.Add(this.ckSellList);
-            this.panel1.Controls.Add(this.btnAdd);
-            this.panel1.Controls.Add(this.nmquantity);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.txtMedName);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel1.Location = new System.Drawing.Point(652, 39);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(613, 338);
-            this.panel1.TabIndex = 7;
-            this.panel1.Visible = false;
+            this.panel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel.Controls.Add(this.btnBarCode);
+            this.panel.Controls.Add(this.btnSell);
+            this.panel.Controls.Add(this.ckSellList);
+            this.panel.Controls.Add(this.btnAdd);
+            this.panel.Controls.Add(this.nmquantity);
+            this.panel.Controls.Add(this.label3);
+            this.panel.Controls.Add(this.txtMedName);
+            this.panel.Controls.Add(this.label4);
+            this.panel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.panel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel.Location = new System.Drawing.Point(599, 39);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(666, 338);
+            this.panel.TabIndex = 7;
+            this.panel.Visible = false;
+            // 
+            // btnBarCode
+            // 
+            this.btnBarCode.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnBarCode.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnBarCode.Location = new System.Drawing.Point(291, 256);
+            this.btnBarCode.Name = "btnBarCode";
+            this.btnBarCode.Size = new System.Drawing.Size(178, 52);
+            this.btnBarCode.TabIndex = 8;
+            this.btnBarCode.Text = "Barcode";
+            this.btnBarCode.UseVisualStyleBackColor = false;
             // 
             // btnSell
             // 
@@ -191,9 +207,9 @@ namespace PharmacyApp
             this.btnSell.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSell.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
             this.btnSell.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSell.Location = new System.Drawing.Point(258, 253);
+            this.btnSell.Location = new System.Drawing.Point(487, 257);
             this.btnSell.Name = "btnSell";
-            this.btnSell.Size = new System.Drawing.Size(330, 52);
+            this.btnSell.Size = new System.Drawing.Size(128, 52);
             this.btnSell.TabIndex = 21;
             this.btnSell.Text = "SELL";
             this.btnSell.UseVisualStyleBackColor = false;
@@ -204,7 +220,7 @@ namespace PharmacyApp
             this.ckSellList.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ckSellList.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ckSellList.FormattingEnabled = true;
-            this.ckSellList.Location = new System.Drawing.Point(258, 49);
+            this.ckSellList.Location = new System.Drawing.Point(285, 49);
             this.ckSellList.Margin = new System.Windows.Forms.Padding(2);
             this.ckSellList.MultiColumn = true;
             this.ckSellList.Name = "ckSellList";
@@ -217,7 +233,7 @@ namespace PharmacyApp
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAdd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAdd.Location = new System.Drawing.Point(24, 202);
+            this.btnAdd.Location = new System.Drawing.Point(65, 191);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(129, 45);
             this.btnAdd.TabIndex = 10;
@@ -229,7 +245,7 @@ namespace PharmacyApp
             // 
             this.nmquantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.nmquantity.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.nmquantity.Location = new System.Drawing.Point(24, 128);
+            this.nmquantity.Location = new System.Drawing.Point(51, 128);
             this.nmquantity.Margin = new System.Windows.Forms.Padding(2);
             this.nmquantity.Maximum = new decimal(new int[] {
             100000,
@@ -256,7 +272,7 @@ namespace PharmacyApp
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.Teal;
-            this.label3.Location = new System.Drawing.Point(24, 101);
+            this.label3.Location = new System.Drawing.Point(51, 101);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 20);
@@ -268,7 +284,7 @@ namespace PharmacyApp
             this.txtMedName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtMedName.Enabled = false;
             this.txtMedName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtMedName.Location = new System.Drawing.Point(24, 49);
+            this.txtMedName.Location = new System.Drawing.Point(51, 49);
             this.txtMedName.Margin = new System.Windows.Forms.Padding(2);
             this.txtMedName.Name = "txtMedName";
             this.txtMedName.Size = new System.Drawing.Size(209, 34);
@@ -280,19 +296,33 @@ namespace PharmacyApp
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.Teal;
-            this.label4.Location = new System.Drawing.Point(24, 17);
+            this.label4.Location = new System.Drawing.Point(51, 17);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(118, 20);
             this.label4.TabIndex = 6;
             this.label4.Text = "Medicine Name";
             // 
+            // btnBarCoder
+            // 
+            this.btnBarCoder.BackColor = System.Drawing.Color.Teal;
+            this.btnBarCoder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBarCoder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnBarCoder.Location = new System.Drawing.Point(0, 312);
+            this.btnBarCoder.Name = "btnBarCoder";
+            this.btnBarCoder.Size = new System.Drawing.Size(249, 52);
+            this.btnBarCoder.TabIndex = 22;
+            this.btnBarCoder.Text = "Barcode";
+            this.btnBarCoder.UseVisualStyleBackColor = false;
+            this.btnBarCoder.Click += new System.EventHandler(this.btnBarCoder_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1277, 597);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btnBarCoder);
+            this.Controls.Add(this.panel);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.dtgMedicine);
             this.Controls.Add(this.cmbTags);
@@ -308,8 +338,8 @@ namespace PharmacyApp
             this.contextMenuStrip1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panel.ResumeLayout(false);
+            this.panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmquantity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -329,7 +359,7 @@ namespace PharmacyApp
         private System.Windows.Forms.ToolStripMenuItem medicineToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem firmsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tagsToolStripMenuItem;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.NumericUpDown nmquantity;
         private System.Windows.Forms.Label label3;
@@ -337,6 +367,8 @@ namespace PharmacyApp
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnSell;
         private System.Windows.Forms.CheckedListBox ckSellList;
+        private System.Windows.Forms.Button btnBarCode;
+        private System.Windows.Forms.Button btnBarCoder;
     }
 }
 
